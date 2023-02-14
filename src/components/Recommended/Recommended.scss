@@ -1,8 +1,6 @@
-@use "../../styles//mixins" as *;
+@use "../../styles/mixins" as *;
 
-.trending {
-  margin: 24px auto;
-
+.recommended {
   &__heading {
     @include headingM;
     margin-bottom: 16px;
@@ -10,6 +8,7 @@
 
   &__views {
     display: flex;
-    overflow-x: scroll;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }

@@ -1,0 +1,11 @@
+.recommended-view {
+  position: relative;
+  list-style: none;
+  margin-bottom: 16px;
+
+  &__thumbnail {
+    width: 164px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,16 @@
+.view-details {
+  &__details {
+    font-size: 12px;
+    font-weight: 100;
+    display: flex;
+    margin-bottom: 4px;
+  }
+
+  &__detail {
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

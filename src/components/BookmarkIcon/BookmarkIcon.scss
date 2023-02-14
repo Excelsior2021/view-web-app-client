@@ -1,0 +1,14 @@
+@use "../../styles/variables" as *;
+
+.bookmark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-blue-translucent;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}

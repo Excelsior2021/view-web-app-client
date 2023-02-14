@@ -1,29 +1,33 @@
-@mixin HeadingL {
+@mixin headingL {
+  text-transform: capitalize;
   font-size: 32px;
   font-weight: 300;
 }
 
-@mixin HeadingM {
+@mixin headingM {
+  text-transform: capitalize;
   font-size: 24px;
   font-weight: 300;
 }
 
-@mixin HeadingS {
+@mixin headingS {
+  text-transform: capitalize;
   font-size: 24px;
   font-weight: 500;
 }
 
-@mixin HeadingXS {
+@mixin headingXS {
+  text-transform: capitalize;
   font-size: 18px;
   font-weight: 500;
 }
 
-@mixin BodyM {
+@mixin bodyM {
   font-size: 15px;
   font-weight: 300;
 }
 
-@mixin BodyS {
+@mixin bodyS {
   font-size: 13px;
   font-weight: 300;
 }

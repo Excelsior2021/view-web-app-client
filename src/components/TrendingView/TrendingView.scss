@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+
+.trending-view {
+  position: relative;
+  list-style: none;
+  margin-right: 16px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__thumbnail {
+    border-radius: 8px;
+    width: 240px;
+  }
+
+  &__bookmark-container {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-blue-translucent;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  &__info {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 16px;
+  }
+
+  &__details {
+    font-size: 12px;
+    font-weight: 100;
+    display: flex;
+    margin-bottom: 4px;
+  }
+
+  &__detail {
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

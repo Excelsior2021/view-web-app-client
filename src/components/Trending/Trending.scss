@@ -1,0 +1,15 @@
+@use "../../styles//mixins" as *;
+
+.trending {
+  margin: 24px auto auto auto;
+
+  &__heading {
+    @include headingM;
+    margin-bottom: 16px;
+  }
+
+  &__views {
+    display: flex;
+    overflow-x: scroll;
+  }
+}

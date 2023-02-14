@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $semi-dark-blue;
+  padding: 16px;
+}
+
+.nav {
+  display: flex;
+
+  &__item {
+    list-style: none;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: auto;
+    }
+  }
+}
+
+.avatar {
+  width: 24px;
+}

@@ -1,19 +1,19 @@
 // @ts-nocheck
 import BookmarkIcon from "../BookmarkIcon/BookmarkIcon"
 import ViewDetails from "../ViewDetails/ViewDetails"
-import "./RecommendedView.scss"
+import "./View.scss"
 
-const RecommendedView = ({ view }) => (
-  <li className="recommended-view">
+const View = ({ view }) => (
+  <li className="view">
     <img
-      className="recommended-view__thumbnail"
+      className="view__thumbnail"
       src={view.thumbnail.regular.small}
       alt={view.title}
     />
     <BookmarkIcon bookmarked={view.isBookmarked} />
-    <div className="recommended-view__details">
+    <div className="view__details">
       <ViewDetails view={view} />
     </div>
   </li>
 )
-export default RecommendedView
+export default View

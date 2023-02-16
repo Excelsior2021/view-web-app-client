@@ -1,8 +1,9 @@
 @use "../../styles/mixins" as *;
 
-.recommended {
+.view-list {
   &__heading {
     @include headingM;
+    margin-top: 24px;
     margin-bottom: 16px;
   }
 

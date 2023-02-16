@@ -19,6 +19,16 @@
       margin-right: auto;
     }
   }
+
+  &__icon {
+    filter: invert(37%) sepia(34%) saturate(472%) hue-rotate(184deg)
+      brightness(100%) contrast(86%);
+
+    &--active {
+      filter: invert(93%) sepia(94%) saturate(7164%) hue-rotate(180deg)
+        brightness(118%) contrast(100%);
+    }
+  }
 }
 
 .avatar {

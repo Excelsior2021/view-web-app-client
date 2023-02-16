@@ -1,3 +1,4 @@
+// @ts-nocheck
 import bookmarkEmpty from "../../assets/images/icon-bookmark-empty.svg"
 import bookmarkFull from "../../assets/images/icon-bookmark-full.svg"
 import "./BookmarkIcon.scss"

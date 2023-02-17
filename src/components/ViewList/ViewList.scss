@@ -8,6 +8,11 @@
 
     @include media-tablet {
       @include headingL;
+      margin-bottom: 24px;
+    }
+
+    @include media-desktop {
+      margin-bottom: 32px;
     }
   }
 

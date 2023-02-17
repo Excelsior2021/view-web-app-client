@@ -17,6 +17,7 @@
 
     @include media-tablet {
       @include headingL;
+      margin-bottom: 24px;
     }
   }
 

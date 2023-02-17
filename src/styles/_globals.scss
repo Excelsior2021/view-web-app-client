@@ -1,5 +1,6 @@
 @use "./fonts";
 @use "./variables" as *;
+@use "./mixins" as *;
 
 *,
 *::before,
@@ -11,6 +12,7 @@
 
 html {
   font-size: 62.5%;
+  max-width: 100vw;
 }
 
 body {
@@ -24,6 +26,22 @@ img {
   display: block;
 }
 
+.app {
+  @include media-desktop {
+    display: flex;
+    max-width: 100vw;
+  }
+}
+
 .main {
   padding: 24px 16px;
+  overflow-x: hidden;
+
+  @include media-tablet {
+    padding: 24px;
+  }
+
+  @include media-desktop {
+    padding: 32px;
+  }
 }

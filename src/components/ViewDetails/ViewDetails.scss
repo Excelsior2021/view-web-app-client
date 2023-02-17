@@ -1,16 +1,35 @@
+@use "../../styles/mixins" as *;
+
 .view-details {
   &__details {
     font-size: 12px;
     font-weight: 100;
     display: flex;
+    align-items: center;
     margin-bottom: 4px;
+
+    @include media-tablet {
+      @include bodyM;
+    }
   }
 
   &__detail {
     margin-right: 8px;
 
+    &--icon {
+      @include media-tablet {
+        transform: scale(1.2);
+      }
+    }
+
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  &__title {
+    @include media-tablet {
+      @include headingS;
     }
   }
 }

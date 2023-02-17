@@ -2,14 +2,33 @@
 
 .trending {
   margin: 24px auto;
+  max-width: 100%;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &__heading {
     @include headingM;
     margin-bottom: 16px;
+
+    @include media-tablet {
+      @include headingL;
+    }
   }
 
   &__views {
     display: flex;
     overflow-x: scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

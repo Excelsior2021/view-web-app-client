@@ -9,20 +9,20 @@ import "./Toolbar.scss"
 import { useState } from "react"
 
 const navInitial = [
-  { name: "home", icon: home, active: true },
-  { name: "movies", icon: movies, active: false },
-  { name: "tv", icon: tv, active: false },
-  { name: "bookmarks", icon: bookmarks, active: false },
+  { section: "home", icon: home, active: true },
+  { section: "movies", icon: movies, active: false },
+  { section: "tv", icon: tv, active: false },
+  { section: "bookmarks", icon: bookmarks, active: false },
 ]
 
-const Toolbar = ({ setSection }) => {
+const Toolbar = ({ dispatch }) => {
   const [nav, setNav] = useState(navInitial)
 
-  const handleChangeSection = (_event, name) => {
-    setSection(name)
+  const handleChangeSection = (_event, section) => {
+    dispatch({ type: "SECTION", section })
     setNav(prevState =>
       prevState.map(element => {
-        if (element.name === name) return { ...element, active: true }
+        if (element.section === section) return { ...element, active: true }
         else return { ...element, active: false }
       })
     )
@@ -30,22 +30,24 @@ const Toolbar = ({ setSection }) => {
 
   return (
     <header className="toolbar">
-      <img className="logo" src={logo} alt="logo" />
-      <ul className="nav">
-        {nav.map(({ name, icon, active }) => (
-          <li
-            key={name}
-            className="nav__item"
-            onClick={event => handleChangeSection(event, name)}>
-            <img
-              className={active ? "nav__icon nav__icon--active" : "nav__icon"}
-              src={icon}
-              alt={name}
-            />
-          </li>
-        ))}
-      </ul>
-      <img className="avatar" src={avatar} alt="account" />
+      <div className="toolbar__container">
+        <img className="logo" src={logo} alt="logo" />
+        <ul className="nav">
+          {nav.map(({ section, icon, active }) => (
+            <li
+              key={section}
+              className="nav__item"
+              onClick={event => handleChangeSection(event, section)}>
+              <img
+                className={active ? "nav__icon nav__icon--active" : "nav__icon"}
+                src={icon}
+                alt={section}
+              />
+            </li>
+          ))}
+        </ul>
+        <img className="avatar" src={avatar} alt="account" />
+      </div>
     </header>
   )
 }

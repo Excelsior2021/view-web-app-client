@@ -9,7 +9,7 @@ const ViewDetails = ({ view }) => (
       <p className="view-details__detail">{view.year}</p>
       <p className="view-details__detail">•</p>
       <img
-        className="view-details__detail"
+        className="view-details__detail view-details__detail--icon"
         src={view.category === "Movie" ? movie : tv}
         alt="catergory"
       />

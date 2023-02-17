@@ -1,22 +1,78 @@
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $semi-dark-blue;
-  padding: 16px;
+  @include media-desktop {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $semi-dark-blue;
+    padding: 16px;
+
+    @include media-tablet {
+      border-radius: 10px;
+      margin: 24px;
+      margin-bottom: 0;
+      padding: 24px;
+    }
+
+    @include media-desktop {
+      position: sticky;
+      left: 32px;
+      flex-direction: column;
+      width: 96px;
+      height: 90%;
+      min-height: 480px;
+      max-height: 960px;
+      margin: 32px;
+      margin-right: 0;
+      padding: 32px;
+    }
+  }
+}
+
+.logo {
+  transform: scale(0.8);
+
+  @include media-tablet {
+    transform: scale(1);
+  }
 }
 
 .nav {
   display: flex;
 
+  @include media-desktop {
+    flex-direction: column;
+  }
+
   &__item {
     list-style: none;
+    transform: scale(0.8);
     margin-right: 24px;
+    cursor: pointer;
+
+    @include media-tablet {
+      transform: scale(1);
+    }
+
+    @include media-desktop {
+      margin: auto;
+      margin-bottom: 32px;
+    }
 
     &:last-child {
       margin-right: auto;
+
+      @include media-desktop {
+        margin-bottom: auto;
+      }
     }
   }
 
@@ -33,4 +89,15 @@
 
 .avatar {
   width: 24px;
+  border: 1.5px solid $pure-white;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include media-tablet {
+    width: 32px;
+  }
+
+  @include media-desktop {
+    width: 40px;
+  }
 }

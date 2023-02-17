@@ -5,11 +5,23 @@
     @include headingM;
     margin-top: 24px;
     margin-bottom: 16px;
+
+    @include media-tablet {
+      @include headingL;
+    }
   }
 
   &__views {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    column-gap: 15px;
+
+    @include media-tablet {
+      column-gap: 24px;
+    }
+
+    @include media-desktop {
+      column-gap: 32px;
+    }
   }
 }

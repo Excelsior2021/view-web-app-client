@@ -11,6 +11,8 @@ const recommendedData = data.filter(({ isTrending }) => !isTrending)
 const movies = data.filter(({ category }) => category.toLowerCase() === "movie")
 const tv = data.filter(({ category }) => category.toLowerCase() === "tv series")
 const bookmarks = data.filter(({ isBookmarked }) => isBookmarked)
+const bookmarksMovies = movies.filter(({ isBookmarked }) => isBookmarked)
+const bookmarksTV = tv.filter(({ isBookmarked }) => isBookmarked)
 
 const initialState = {
   trending,
@@ -26,6 +28,7 @@ const viewsReducer = (state, action) => {
     case "QUERY": {
       if (!action.query) {
         let viewListHeading
+        let viewListHeadingBookmarks
         switch (state.section) {
           case "home":
             viewListHeading = "recommended for you"
@@ -37,19 +40,26 @@ const viewsReducer = (state, action) => {
             viewListHeading = "tv series"
             break
           case "bookmarks":
-            viewListHeading = "bookmarks"
+            viewListHeading = "bookmarked movies"
+            viewListHeadingBookmarks = "bookmarked tv series"
             break
         }
         return {
           ...state,
           queryViewList: null,
           viewListHeading,
+          viewListHeadingBookmarks,
           showTrending: true,
+          query: false,
         }
       }
       let queryViewList
       if (state.section === "home")
         queryViewList = data.filter(({ title }) =>
+          title.toLowerCase().includes(action.query.toLowerCase())
+        )
+      else if (state.section === "bookmarks")
+        queryViewList = bookmarks.filter(({ title }) =>
           title.toLowerCase().includes(action.query.toLowerCase())
         )
       else
@@ -63,6 +73,7 @@ const viewsReducer = (state, action) => {
           queryViewList.length === 1 ? "result" : "results"
         } for '${action.query}'`,
         showTrending: false,
+        query: true,
       }
     }
     case "SECTION": {
@@ -88,17 +99,21 @@ const viewsReducer = (state, action) => {
           placeholder = "Search TV series"
           break
         case "bookmarks":
-          viewList = bookmarks
-          viewListHeading = "bookmarks"
+          viewList = bookmarksMovies
+          viewListHeading = "bookmarked movies"
           placeholder = "Search bookmarked views"
+          viewListBookmarks = bookmarksTV
+          viewListHeadingBookmarks = "bookmarked tv series"
           break
       }
       return {
         ...state,
         section: action.section,
         viewList,
+        viewListBookmarks,
         queryViewList: null,
         viewListHeading,
+        viewListHeadingBookmarks,
         placeholder,
       }
     }
@@ -121,6 +136,12 @@ const App = () => {
           queryList={state.queryViewList}
           heading={state.viewListHeading}
         />
+        {state.viewListBookmarks && !state.query && (
+          <ViewList
+            list={state.viewListBookmarks}
+            heading={state.viewListHeadingBookmarks}
+          />
+        )}
       </main>
     </div>
   )

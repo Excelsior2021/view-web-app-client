@@ -3,8 +3,8 @@ import { useReducer } from "react"
 import Search from "./components/Search/Search"
 import Toolbar from "./components/Toolbar/Toolbar"
 import Trending from "./components/Trending/Trending"
-import data from "./data/data.json"
 import ViewList from "./components/ViewList/ViewList"
+import data from "./data/data.json"
 
 const trending = data.filter(({ isTrending }) => isTrending)
 const recommendedData = data.filter(({ isTrending }) => !isTrending)

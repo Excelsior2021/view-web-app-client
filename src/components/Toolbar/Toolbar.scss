@@ -23,7 +23,6 @@
     }
 
     @include media-desktop {
-      position: sticky;
       left: 32px;
       flex-direction: column;
       width: 96px;
@@ -49,6 +48,8 @@
   display: flex;
 
   @include media-desktop {
+    position: absolute;
+    top: 168px;
     flex-direction: column;
   }
 

@@ -32,21 +32,29 @@ const Toolbar = ({ dispatch }) => {
     <header className="toolbar">
       <div className="toolbar__container">
         <img className="logo" src={logo} alt="logo" />
-        <ul className="nav">
-          {nav.map(({ section, icon, active }) => (
-            <li
-              key={section}
-              className="nav__item"
-              onClick={event => handleChangeSection(event, section)}>
-              <img
-                className={active ? "nav__icon nav__icon--active" : "nav__icon"}
-                src={icon}
-                alt={section}
-              />
-            </li>
-          ))}
-        </ul>
-        <img className="avatar" src={avatar} alt="account" />
+        <nav className="nav">
+          <ul className="nav__list">
+            {nav.map(({ section, icon, active }) => (
+              <li
+                key={section}
+                className="nav__item"
+                onClick={event => handleChangeSection(event, section)}>
+                <a href="#" className="nav__link">
+                  <img
+                    className={
+                      active ? "nav__icon nav__icon--active" : "nav__icon"
+                    }
+                    src={icon}
+                    alt={section}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a href="#" className="avatar_link">
+          <img className="avatar" src={avatar} alt="account" />
+        </a>
       </div>
     </header>
   )

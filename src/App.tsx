@@ -69,7 +69,7 @@ const viewsReducer = (state, action) => {
       return {
         ...state,
         queryViewList,
-        viewListHeading: `Found ${queryViewList.length} ${
+        viewListHeading: `found ${queryViewList.length} ${
           queryViewList.length === 1 ? "result" : "results"
         } for '${action.query}'`,
         showTrending: false,

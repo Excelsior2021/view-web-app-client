@@ -5,22 +5,27 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $dark-blue-translucent;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
   z-index: 100;
   cursor: pointer;
 
-  &:hover {
-    background-color: $pure-white;
-  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-blue-translucent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
 
-  &:hover > * {
-    filter: none;
+    &:hover {
+      background-color: $pure-white;
+    }
+
+    &:hover > * {
+      filter: none;
+    }
   }
 
   &__icon {

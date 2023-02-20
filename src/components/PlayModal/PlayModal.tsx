@@ -3,10 +3,10 @@ import "./PlayModal.scss"
 
 const PlayModal = () => (
   <div className="play-modal">
-    <div className="play-modal__button">
+    <button className="play-modal__button">
       <img className="play-modal__icon" src={playButton} alt="play button" />
       <span className="play-modal__text">view</span>
-    </div>
+    </button>
   </div>
 )
 

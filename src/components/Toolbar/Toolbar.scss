@@ -45,12 +45,17 @@
 }
 
 .nav {
-  display: flex;
-
   @include media-desktop {
     position: absolute;
     top: 168px;
-    flex-direction: column;
+  }
+
+  &__list {
+    display: flex;
+
+    @include media-desktop {
+      flex-direction: column;
+    }
   }
 
   &__item {

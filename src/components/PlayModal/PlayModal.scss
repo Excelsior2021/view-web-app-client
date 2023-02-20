@@ -15,10 +15,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: $pure-white;
     background-color: rgba(255, 255, 255, 0.2);
     width: 117px;
     height: 48px;
+    border: none;
     border-radius: 28.5px;
+    cursor: pointer;
   }
 
   &__icon {
@@ -30,7 +33,7 @@
   &__text {
     @include headingXS;
     position: absolute;
-    top: 12px;
+    top: 14px;
     left: 58px;
   }
 }

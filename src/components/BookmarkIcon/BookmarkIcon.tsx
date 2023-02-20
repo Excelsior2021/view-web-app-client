@@ -5,11 +5,13 @@ import "./BookmarkIcon.scss"
 
 const BookmarkIcon = ({ bookmarked }) => (
   <div className="bookmark">
-    <img
-      className="bookmark__icon"
-      src={bookmarked ? bookmarkFull : bookmarkEmpty}
-      alt="bookmark"
-    />
+    <button className="bookmark__button">
+      <img
+        className="bookmark__icon"
+        src={bookmarked ? bookmarkFull : bookmarkEmpty}
+        alt="bookmark"
+      />
+    </button>
   </div>
 )
 

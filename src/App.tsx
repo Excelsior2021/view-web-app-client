@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 import { useReducer } from "react"
 import Search from "./components/Search/Search"
 import Toolbar from "./components/Toolbar/Toolbar"
@@ -23,7 +23,8 @@ const initialState = {
   showTrending: true,
 }
 
-const viewsReducer = (state, action) => {
+const viewsReducer = (state: typeof initialState, action) => {
+  console.log(action)
   switch (action.type) {
     case "QUERY": {
       if (!action.query) {

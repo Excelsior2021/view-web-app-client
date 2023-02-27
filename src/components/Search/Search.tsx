@@ -1,9 +1,14 @@
-// @ts-nocheck
-import { useState } from "react"
+import { Dispatch } from "react"
+import { actionType } from "../../types/types"
 import search from "../../assets/images/icon-search.svg"
 import "./Search.scss"
 
-const Search = ({ dispatch, placeholder }) => {
+type searchType = {
+  dispatch: Dispatch<actionType>
+  placeholder: string
+}
+
+const Search = ({ dispatch, placeholder }: searchType) => {
   return (
     <div className="search">
       <img className="search__icon" src={search} alt="search" />

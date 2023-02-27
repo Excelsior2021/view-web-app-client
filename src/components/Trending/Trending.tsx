@@ -1,8 +1,12 @@
-// @ts-nocheck
 import TrendingView from "../TrendingView/TrendingView"
+import { videoObjectType } from "../../types/types"
 import "./Trending.scss"
 
-const Trending = ({ trending }) => (
+type trendingType = {
+  trending: videoObjectType[]
+}
+
+const Trending = ({ trending }: trendingType) => (
   <div className="trending">
     <h2 className="trending__heading">trending</h2>
     <ul className="trending__views">

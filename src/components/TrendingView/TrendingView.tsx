@@ -1,17 +1,21 @@
-// @ts-nocheck
 import ViewDetails from "../ViewDetails/ViewDetails"
 import BookmarkIcon from "../BookmarkIcon/BookmarkIcon"
 import PlayModal from "../PlayModal/PlayModal"
+import { videoObjectType } from "../../types/types"
 import "./TrendingView.scss"
 
-const TrendingView = ({ view }) => (
+type trendingViewType = {
+  view: videoObjectType
+}
+
+const TrendingView = ({ view }: trendingViewType) => (
   <li className="trending-view">
     <div className="trending-view__play-modal">
       <PlayModal />
     </div>
     <img
       className="trending-view__thumbnail"
-      src={view.thumbnail.trending.small}
+      src={view.thumbnail.trending?.small}
       alt={view.title}
     />
     <BookmarkIcon bookmarked={view.isBookmarked} />

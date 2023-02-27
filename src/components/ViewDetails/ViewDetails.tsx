@@ -1,9 +1,13 @@
-// @ts-nocheck
 import movie from "../../assets/images/icon-category-movie.svg"
 import tv from "../../assets/images/icon-category-tv.svg"
+import { videoObjectType } from "../../types/types"
 import "./ViewDetails.scss"
 
-const ViewDetails = ({ view }) => (
+type viewDetailsType = {
+  view: videoObjectType
+}
+
+const ViewDetails = ({ view }: viewDetailsType) => (
   <div className="view-details">
     <div className="view-details__details">
       <p className="view-details__detail">{view.year}</p>

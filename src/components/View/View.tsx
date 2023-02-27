@@ -1,10 +1,14 @@
-// @ts-nocheck
 import BookmarkIcon from "../BookmarkIcon/BookmarkIcon"
 import PlayModal from "../PlayModal/PlayModal"
 import ViewDetails from "../ViewDetails/ViewDetails"
+import { videoObjectType } from "../../types/types"
 import "./View.scss"
 
-const View = ({ view }) => (
+type viewType = {
+  view: videoObjectType
+}
+
+const View = ({ view }: viewType) => (
   <li className="view">
     <div className="view__play-modal">
       <PlayModal />

@@ -5,6 +5,7 @@ import Toolbar from "./components/Toolbar/Toolbar"
 import Trending from "./components/Trending/Trending"
 import ViewList from "./components/ViewList/ViewList"
 import data from "./data/data.json"
+import { actionType, videoObjectType } from "./types/types"
 
 const trending = data.filter(({ isTrending }) => isTrending)
 const recommendedData = data.filter(({ isTrending }) => !isTrending)
@@ -13,6 +14,15 @@ const tv = data.filter(({ category }) => category.toLowerCase() === "tv series")
 const bookmarks = data.filter(({ isBookmarked }) => isBookmarked)
 const bookmarksMovies = movies.filter(({ isBookmarked }) => isBookmarked)
 const bookmarksTV = tv.filter(({ isBookmarked }) => isBookmarked)
+
+type initialStateType = {
+  trending: videoObjectType[]
+  viewList: videoObjectType[]
+  section: string
+  viewListHeading: string
+  placeholder: string
+  showTrending: boolean
+}
 
 const initialState = {
   trending,
@@ -23,8 +33,7 @@ const initialState = {
   showTrending: true,
 }
 
-const viewsReducer = (state: typeof initialState, action) => {
-  console.log(action)
+const viewsReducer = (state: initialStateType, action: actionType) => {
   switch (action.type) {
     case "QUERY": {
       if (!action.query) {

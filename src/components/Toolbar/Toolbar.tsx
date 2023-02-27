@@ -1,4 +1,5 @@
-// @ts-nocheck
+import { useState, Dispatch } from "react"
+import { actionType } from "../../types/types"
 import logo from "../../assets/images/logo.svg"
 import home from "../../assets/images/icon-nav-home.svg"
 import movies from "../../assets/images/icon-nav-movies.svg"
@@ -6,7 +7,10 @@ import tv from "../../assets/images/icon-nav-tv-series.svg"
 import bookmarks from "../../assets/images/icon-nav-bookmark.svg"
 import avatar from "../../assets/images/image-avatar.png"
 import "./Toolbar.scss"
-import { useState } from "react"
+
+type toolbarType = {
+  dispatch: Dispatch<actionType>
+}
 
 const navInitial = [
   { section: "home", icon: home, active: true },
@@ -15,10 +19,13 @@ const navInitial = [
   { section: "bookmarks", icon: bookmarks, active: false },
 ]
 
-const Toolbar = ({ dispatch }) => {
+const Toolbar = ({ dispatch }: toolbarType) => {
   const [nav, setNav] = useState(navInitial)
 
-  const handleChangeSection = (_event, section) => {
+  const handleChangeSection = (
+    _event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    section: string
+  ) => {
     dispatch({ type: "SECTION", section })
     setNav(prevState =>
       prevState.map(element => {

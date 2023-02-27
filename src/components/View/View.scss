@@ -4,17 +4,19 @@
   position: relative;
   list-style: none;
   margin-bottom: 16px;
-  width: 164px;
+  width: 47.8%;
+  min-width: 136.5px;
   cursor: pointer;
 
   @include media-tablet {
     margin-bottom: 24px;
-    width: 220px;
+    width: 30.5%;
   }
 
   @include media-desktop {
     margin-bottom: 32px;
-    width: 280px;
+    width: 22.5%;
+    max-width: 280px;
   }
 
   &__thumbnail {

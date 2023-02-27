@@ -19,7 +19,7 @@ const initialState = {
   viewList: recommendedData,
   section: "home",
   viewListHeading: "recommended for you",
-  placeholder: "Search movies or TV series",
+  placeholder: "search movies or tv series",
   showTrending: true,
 }
 
@@ -86,22 +86,22 @@ const viewsReducer = (state, action) => {
         case "home":
           viewList = recommendedData
           viewListHeading = "recommended for you"
-          placeholder = "Search movies or TV series"
+          placeholder = "search movies or TV series"
           break
         case "movies":
           viewList = movies
           viewListHeading = "movies"
-          placeholder = "Search movies"
+          placeholder = "search movies"
           break
         case "tv":
           viewList = tv
           viewListHeading = "tv series"
-          placeholder = "Search TV series"
+          placeholder = "search tv series"
           break
         case "bookmarks":
           viewList = bookmarksMovies
           viewListHeading = "bookmarked movies"
-          placeholder = "Search bookmarked views"
+          placeholder = "search bookmarked views"
           viewListBookmarks = bookmarksTV
           viewListHeadingBookmarks = "bookmarked tv series"
           break

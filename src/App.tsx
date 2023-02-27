@@ -125,6 +125,8 @@ const viewsReducer = (state: initialStateType, action: actionType) => {
         viewListHeading,
         viewListHeadingBookmarks,
         placeholder,
+        showTrending: true,
+        query: false,
       }
     }
   }
@@ -137,7 +139,11 @@ const App = () => {
     <div className="app">
       <Toolbar dispatch={dispatch} />
       <main className="main">
-        <Search dispatch={dispatch} placeholder={state.placeholder} />
+        <Search
+          dispatch={dispatch}
+          placeholder={state.placeholder}
+          query={state.queryViewList}
+        />
         {state.showTrending && state.section === "home" && (
           <Trending trending={trending} />
         )}

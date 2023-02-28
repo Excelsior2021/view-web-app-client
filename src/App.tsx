@@ -90,7 +90,7 @@ const viewsReducer = (state: stateType, action: actionType): stateType => {
         case "home":
           viewList = recommendedData
           viewListHeading = "recommended for you"
-          placeholder = "search movies or TV series"
+          placeholder = "search movies or tv series"
           break
         case "movies":
           viewList = movies

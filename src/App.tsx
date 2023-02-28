@@ -131,8 +131,6 @@ const viewsReducer = (state: stateType, action: actionType): stateType => {
 const App = () => {
   const [state, dispatch] = useReducer(viewsReducer, initialState)
 
-  console.log(state, dispatch)
-
   return (
     <div className="app">
       <Toolbar dispatch={dispatch} />

@@ -1,11 +1,10 @@
-//@ts-nocheck
 import { useReducer } from "react"
 import Search from "./components/Search/Search"
 import Toolbar from "./components/Toolbar/Toolbar"
 import Trending from "./components/Trending/Trending"
 import ViewList from "./components/ViewList/ViewList"
 import data from "./data/data.json"
-import { actionType, videoObjectType } from "./types/types"
+import { stateType, actionType } from "./types/types"
 
 const trending = data.filter(({ isTrending }) => isTrending)
 const recommendedData = data.filter(({ isTrending }) => !isTrending)
@@ -15,30 +14,23 @@ const bookmarks = data.filter(({ isBookmarked }) => isBookmarked)
 const bookmarksMovies = movies.filter(({ isBookmarked }) => isBookmarked)
 const bookmarksTV = tv.filter(({ isBookmarked }) => isBookmarked)
 
-type initialStateType = {
-  trending: videoObjectType[]
-  viewList: videoObjectType[]
-  section: string
-  viewListHeading: string
-  placeholder: string
-  showTrending: boolean
-}
-
 const initialState = {
   trending,
   viewList: recommendedData,
   section: "home",
   viewListHeading: "recommended for you",
+  viewListHeadingBookmarks: null,
   placeholder: "search movies or tv series",
   showTrending: true,
+  queryViewList: null,
 }
 
-const viewsReducer = (state: initialStateType, action: actionType) => {
+const viewsReducer = (state: stateType, action: actionType): stateType => {
   switch (action.type) {
     case "QUERY": {
       if (!action.query) {
         let viewListHeading
-        let viewListHeadingBookmarks
+        let viewListHeadingBookmarks = null
         switch (state.section) {
           case "home":
             viewListHeading = "recommended for you"
@@ -53,6 +45,8 @@ const viewsReducer = (state: initialStateType, action: actionType) => {
             viewListHeading = "bookmarked movies"
             viewListHeadingBookmarks = "bookmarked tv series"
             break
+          default:
+            return state
         }
         return {
           ...state,
@@ -63,7 +57,7 @@ const viewsReducer = (state: initialStateType, action: actionType) => {
           query: false,
         }
       }
-      let queryViewList
+      let queryViewList = null
       if (state.section === "home")
         queryViewList = data.filter(({ title }) =>
           title.toLowerCase().includes(action.query.toLowerCase())
@@ -91,7 +85,7 @@ const viewsReducer = (state: initialStateType, action: actionType) => {
       let viewListHeading
       let placeholder
       let viewListBookmarks
-      let viewListHeadingBookmarks
+      let viewListHeadingBookmarks = null
       switch (action.section) {
         case "home":
           viewList = recommendedData
@@ -115,6 +109,8 @@ const viewsReducer = (state: initialStateType, action: actionType) => {
           viewListBookmarks = bookmarksTV
           viewListHeadingBookmarks = "bookmarked tv series"
           break
+        default:
+          return state
       }
       return {
         ...state,
@@ -134,6 +130,8 @@ const viewsReducer = (state: initialStateType, action: actionType) => {
 
 const App = () => {
   const [state, dispatch] = useReducer(viewsReducer, initialState)
+
+  console.log(state, dispatch)
 
   return (
     <div className="app">

@@ -21,3 +21,16 @@ export type videoObjectType = {
   isBookmarked: boolean
   isTrending: boolean
 }
+
+export type stateType = {
+  trending: videoObjectType[]
+  viewList: videoObjectType[]
+  viewListBookmarks?: videoObjectType[]
+  queryViewList: videoObjectType[] | null
+  section: string
+  viewListHeading: string
+  viewListHeadingBookmarks: string | null
+  placeholder: string
+  showTrending: boolean
+  query?: boolean
+}

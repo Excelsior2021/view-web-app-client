@@ -4,8 +4,8 @@ import "./ViewList.scss"
 
 type viewListProps = {
   list: videoObjectType[]
-  queryList?: videoObjectType[]
-  heading: string
+  queryList?: videoObjectType[] | null
+  heading: string | null
 }
 
 const ViewList = ({ list, queryList, heading }: viewListProps) => (

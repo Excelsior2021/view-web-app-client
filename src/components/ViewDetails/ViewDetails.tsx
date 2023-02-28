@@ -1,6 +1,6 @@
+import { videoObjectType } from "../../types/types"
 import movie from "../../assets/images/icon-category-movie.svg"
 import tv from "../../assets/images/icon-category-tv.svg"
-import { videoObjectType } from "../../types/types"
 import "./ViewDetails.scss"
 
 type viewDetailsType = {

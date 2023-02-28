@@ -10,15 +10,17 @@ type viewType = {
 
 const View = ({ view }: viewType) => (
   <li className="view">
-    <div className="view__play-modal">
-      <PlayModal />
+    <div className="view__view">
+      <div className="view__play-modal">
+        <PlayModal />
+      </div>
+      <img
+        className="view__thumbnail"
+        src={view.thumbnail.regular.small}
+        alt={view.title}
+      />
+      <BookmarkIcon bookmarked={view.isBookmarked} />
     </div>
-    <img
-      className="view__thumbnail"
-      src={view.thumbnail.regular.small}
-      alt={view.title}
-    />
-    <BookmarkIcon bookmarked={view.isBookmarked} />
     <div className="view__details">
       <ViewDetails view={view} />
     </div>

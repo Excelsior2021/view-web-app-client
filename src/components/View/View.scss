@@ -1,7 +1,6 @@
 @use "../../styles/mixins" as *;
 
 .view {
-  position: relative;
   list-style: none;
   margin-bottom: 16px;
   width: 47.8%;
@@ -19,34 +18,22 @@
     max-width: 280px;
   }
 
+  &__view {
+    position: relative;
+    margin-bottom: 8px;
+  }
+
   &__thumbnail {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 8px;
-
-    @include media-tablet {
-      height: 140px;
-    }
-
-    @include media-desktop {
-      height: 174px;
-    }
   }
 
   &__play-modal {
     position: absolute;
     opacity: 0;
     width: 100%;
-    height: 110px;
+    height: 100%;
     z-index: 10;
-
-    @include media-tablet {
-      height: 140px;
-    }
-
-    @include media-desktop {
-      height: 174px;
-    }
 
     &:hover {
       opacity: 1;
